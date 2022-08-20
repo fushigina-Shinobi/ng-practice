@@ -1,0 +1,18 @@
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.book {
+  list-style: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  width: 25%;
+}
+/* .book-info {
+  height: 5rem;
+} */
