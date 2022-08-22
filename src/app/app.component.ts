@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { initializeApp } from 'firebase/app';
+import { AuthService } from './auth/auth.service';
+import { firebaseConfig } from './firebase.config';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'practice-app';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    initializeApp(firebaseConfig);
+  }
+  constructor(private authService: AuthService) {}
+  // title = 'practice-app';
+  isAuthenticated() {
+    return this.authService.isAuthenticated;
+  }
+  logout() {
+    this.authService.logout();
+  }
 }

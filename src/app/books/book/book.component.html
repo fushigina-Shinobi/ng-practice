@@ -1,9 +1,24 @@
-<li class="book">
+<li
+  class="flex justify-center flex-col bg-white rounded-lg p-10 shadow-xl cursor-pointer hover:scale-105"
+>
   <img [src]="book.img" [alt]="book.name" width="100px" />
-  <div class="book-info">
-    <p>{{ book.name | titlecase }} by {{ book.author }}</p>
+  <div class="text-center">
+    <p>{{ book.name.substring(1, 15) | titlecase }}</p>
+    <p>{{ book.author | titlecase }}</p>
     <p>{{ book.amount | currency: "INR" }}</p>
   </div>
-  <button *ngIf="!isInCart" (click)="addCart()">Add To Cart</button>
-  <button *ngIf="isInCart" (click)="removeCart()">Remove From Cart</button>
+  <button
+    *ngIf="!isInCart"
+    (click)="addCart()"
+    class="bg-cyan-400 text-white hover:bg-cyan-600 active:bg-cyan-700 focus:outline-none focus:ring focus:ring-cyan-300 rounded-full border-2 hover:divide-y-8 border-solid..."
+  >
+    Add To Cart
+  </button>
+  <button
+    *ngIf="isInCart"
+    (click)="removeCart()"
+    class="bg-cyan-400 text-white hover:bg-cyan-600 active:bg-cyan-700 focus:outline-none focus:ring focus:ring-cyan-300 rounded-full border-2 hover:divide-y-8 border-solid..."
+  >
+    Remove From Cart
+  </button>
 </li>
